@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Letras Mágicas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- ================= LOGIN ================= -->
+
+    <section id="loginScreen" class="screen active">
+
+        <div class="login-box">
+
+            <div class="logo">📚✨</div>
+
+            <h1>Letras Mágicas</h1>
+
+            <p>¡Aprende jugando!</p>
+
+
+            <div class="role-buttons">
+
+                <button id="studentRoleBtn" class="role-btn selected">
+                    🧒 Alumno
+                </button>
+
+                <button id="teacherRoleBtn" class="role-btn">
+                    👨‍🏫 Profesor
+                </button>
+
+            </div>
+
+
+            <!-- LOGIN ALUMNO -->
+
+            <div id="studentLogin">
+
+                <h2>¡Hola, estudiante! 👋</h2>
+
+                <p class="info">
+                    Puedes entrar libremente y comenzar a jugar.
+                </p>
+
+                <input
+                    type="text"
+                    id="studentName"
+                    placeholder="Escribe tu nombre"
+                >
+
+                <button id="enterStudentBtn" class="main-btn">
+                    🎮 Entrar a jugar
+                </button>
+
+            </div>
+
+
+            <!-- LOGIN PROFESOR -->
+
+            <div id="teacherLogin" class="hidden">
+
+                <h2>👨‍🏫 Cuenta de profesor</h2>
+
+                <input
+                    type="text"
+                    id="teacherUsername"
+                    placeholder="Usuario"
+                >
+
+                <input
+                    type="password"
+                    id="teacherPassword"
+                    placeholder="Contraseña"
+                >
+
+                <button id="loginTeacherBtn" class="main-btn">
+                    🔐 Iniciar sesión
+                </button>
+
+                <button id="showRegisterBtn" class="secondary-btn">
+                    📝 Registrarme como profesor
+                </button>
+
+                <p id="teacherMessage" class="message"></p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= REGISTRO PROFESOR ================= -->
+
+    <section id="registerScreen" class="screen">
+
+        <div class="login-box">
+
+            <div class="logo">👨‍🏫✨</div>
+
+            <h1>Crear cuenta</h1>
+
+            <p>Regístrate como profesor</p>
+
+
+            <input
+                type="text"
+                id="registerName"
+                placeholder="Nombre completo"
+            >
+
+            <input
+                type="text"
+                id="registerUsername"
+                placeholder="Nombre de usuario"
+            >
+
+            <input
+                type="email"
+                id="registerEmail"
+                placeholder="Correo electrónico"
+            >
+
+            <input
+                type="password"
+                id="registerPassword"
+                placeholder="Contraseña"
+            >
+
+            <input
+                type="password"
+                id="registerPassword2"
+                placeholder="Confirmar contraseña"
+            >
+
+
+            <button id="registerTeacherBtn" class="main-btn">
+                ✅ Crear cuenta
+            </button>
+
+            <button id="backLoginBtn" class="secondary-btn">
+                ↩️ Volver al inicio
+            </button>
+
+            <p id="registerMessage" class="message"></p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= PANEL ALUMNO ================= -->
+
+    <section id="studentScreen" class="screen">
+
+        <header class="topbar">
+
+            <div>
+
+                <h2>📚 Letras Mágicas</h2>
+
+                <span id="studentWelcome"></span>
+
+            </div>
+
+            <button id="studentLogout" class="logout-btn">
+                🚪 Salir
+            </button>
+
+        </header>
+
+
+        <div class="student-container">
+
+
+            <div class="mascot">
+
+                🦊
+
+                <h2>¡Vamos a aprender!</h2>
+
+                <p>
+                    Completa actividades y consigue recompensas.
+                </p>
+
+            </div>
+
+
+            <div class="stats">
+
+                <div class="stat-card">
+
+                    ⭐
+
+                    <strong id="stars">0</strong>
+
+                    <span>Estrellas</span>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    🪙
+
+                    <strong id="coins">0</strong>
+
+                    <span>Monedas</span>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    🏆
+
+                    <strong id="level">1</strong>
+
+                    <span>Nivel</span>
+
+                </div>
+
+            </div>
+
+
+            <h2 class="section-title">
+                🎮 Elige una aventura
+            </h2>
+
+
+            <div class="games">
+
+                <button class="game-card" data-game="words">
+
+                    ✍️
+
+                    <strong>Palabras mágicas</strong>
+
+                    <span>
+                        Completa las palabras
+                    </span>
+
+                </button>
+
+
+                <button class="game-card" data-game="syllables">
+
+                    🔤
+
+                    <strong>Ordena sílabas</strong>
+
+                    <span>
+                        Forma palabras
+                    </span>
+
+                </button>
+
+
+                <button class="game-card" data-game="reading">
+
+                    📖
+
+                    <strong>La biblioteca</strong>
+
+                    <span>
+                        Lee y responde
+                    </span>
+
+                </button>
+
+
+                <button class="game-card" data-game="dictation">
+
+                    🔊
+
+                    <strong>El gran dictado</strong>
+
+                    <span>
+                        Escucha y escribe
+                    </span>
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= ACTIVIDAD ================= -->
+
+    <section id="gameScreen" class="screen">
+
+        <div class="game-container">
+
+            <button id="backMenuBtn" class="back-btn">
+                ← Volver
+            </button>
+
+            <h1 id="gameTitle"></h1>
+
+            <div id="gameContent"></div>
+
+            <div id="gameMessage" class="game-message"></div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= RESULTADOS ================= -->
+
+    <section id="resultScreen" class="screen">
+
+        <div class="result-box">
+
+            <div class="result-icon">
+                🏆
+            </div>
+
+            <h1>¡Muy bien!</h1>
+
+            <p id="resultText"></p>
+
+            <div
+                class="result-stars"
+                id="resultStars">
+            </div>
+
+
+            <button id="continueBtn" class="main-btn">
+                🎮 Seguir jugando
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= PANEL PROFESOR ================= -->
+
+    <section id="teacherScreen" class="screen">
+
+        <header class="topbar">
+
+            <div>
+
+                <h2>👨‍🏫 Panel del profesor</h2>
+
+                <span id="teacherWelcome"></span>
+
+            </div>
+
+
+            <button id="teacherLogout" class="logout-btn">
+                🚪 Cerrar sesión
+            </button>
+
+        </header>
+
+
+        <div class="teacher-container">
+
+
+            <!-- PERFIL -->
+
+            <div class="profile-card">
+
+                <div class="profile-avatar">
+                    👨‍🏫
+                </div>
+
+
+                <div>
+
+                    <h2 id="teacherProfileName"></h2>
+
+                    <p id="teacherProfileEmail"></p>
+
+                    <span class="private-label">
+                        🔒 Perfil privado
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- ESTADÍSTICAS -->
+
+            <h2>
+                📊 Resumen de estudiantes
+            </h2>
+
+
+            <div class="teacher-stats">
+
+                <div class="teacher-stat">
+
+                    👥
+
+                    <strong id="totalStudents">
+                        0
+                    </strong>
+
+                    <span>
+                        Estudiantes
+                    </span>
+
+                </div>
+
+
+                <div class="teacher-stat">
+
+                    ⭐
+
+                    <strong id="totalStars">
+                        0
+                    </strong>
+
+                    <span>
+                        Estrellas
+                    </span>
+
+                </div>
+
+
+                <div class="teacher-stat">
+
+                    🎮
+
+                    <strong id="totalGames">
+                        0
+                    </strong>
+
+                    <span>
+                        Actividades
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- ESTUDIANTES -->
+
+            <h2>
+                👥 Progreso de estudiantes
+            </h2>
+
+
+            <div id="studentsList"></div>
+
+
+            <!-- ERRORES -->
+
+            <h2>
+                ⚠️ Errores frecuentes
+            </h2>
+
+
+            <div id="mistakesList"></div>
+
+        </div>
+
+    </section>
+
+</div>
+
+<script type="module">
+
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-app.js";
+    import { getAuth } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-auth.js";
+    import { getFirestore } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-firestore.js";
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyAqsviFK9xtNvuDBcA0tJy-e8nEXwFIi1U",
+        authDomain: "aprende-espanol-615e9.firebaseapp.com",
+        projectId: "aprende-espanol-615e9",
+        storageBucket: "aprende-espanol-615e9.firebasestorage.app",
+        messagingSenderId: "739374833355",
+        appId: "1:739374833355:web:bb194ee5f45d16c6e2854e"
+    };
+
+    const app = initializeApp(firebaseConfig);
+
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+
+    window.firebaseApp = app;
+    window.firebaseAuth = auth;
+    window.firebaseDB = db;
+
+    console.log("🔥 Firebase conectado correctamente.");
+    console.log("🔐 Authentication conectado correctamente.");
+    console.log("☁️ Firestore conectado correctamente.");
+
+    // Cargar el código principal de la aplicación
+    import("./script.js");
+
+</script>
+
+</body>
+</html>
